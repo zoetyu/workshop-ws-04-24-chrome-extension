@@ -72,7 +72,6 @@ Now that chrome will look to run ```content.js``` we have to create it. Create `
 alert("Hello from your Chrome extension!");
 ```
 
-(link/automatic scrolling to **UPLOADING YOUR EXTENSION** section in tutorial so people can test out using a custom extension already)
 How do we see this test? We upload our extension. 
 
 ## Testing your extension<sup id="fnl1">[1](#fn1)</sup>
@@ -365,6 +364,45 @@ Additionally, the extension requires permission to access the current tab, the b
 ### Background Logic
 Then create the background.js file.
 
+The first thing that our background file can do is set some text on the extension's logo to indicate whether it is on or off: 
+```javascript
+//Setting badge/button of the extension.
+chrome.browserAction.setBadgeText({ text: 'OFF' });
+```
+
+Next we'll set the default state for ```enable``` to ```false``` for *off* and we'll store it in the [Chrome Storage](https://developer.chrome.com/apps/storage). 
+```javascript
+// boolean for on/off 
+var enable=false;
+// store enable in local storage if you wanted to access in content.js
+chrome.storage.sync.set({"enable": enable});
+```
+
+Finally, we'll want either run the content script or not run the content script based on the value of ```enable```. At the same time we have to toggle the value of ```enable```, update the text on the logo to indicate the state, and save the value of enable so that we can access it in ```content.js```. 
+
+We use ```chrome.browserAction``` to both read events and set the badge, like above. We also use ```chrome.tabs.executeScript``` to reload the page. 
+
+```javascript
+// onclick method
+chrome.browserAction.onClicked.addListener((tab) => {
+    enable = !enable;
+    // if enabled run content.js else, reload page
+    if (enable) {
+        chrome.browserAction.setBadgeText({text: 'ON'});
+        chrome.tabs.executeScript(null, { file: 'content.js'});
+    } else {
+        chrome.browserAction.setBadgeText({ text: 'OFF'});
+        chrome.tabs.executeScript(tab.id, {code: 'window.location.reload();'});
+    }
+
+    // store state of button
+    // with callback for debugging
+    // chrome.storage.sync.set({"enable": enable}, () => console.log('Enable set to: ', enable));
+    // w/o callback 
+    chrome.storage.sync.set({"enable": enable});
+})
+```
+
 
 ### Incorporate into Content Script
 Now we only want the content script to run when the extension is enabled. In ```background.js``` we stored the variable ```enable``` in the browser storage, so we can get it in the content script using the [storage sync](https://developer.chrome.com/apps/storage) api.
@@ -375,7 +413,7 @@ chrome.storage.sync.get("enable", function(result) {
 }
 ``` 
 
-Since this method returns a promise, we need to put our content functionality inside of the callback. ```sayQuote()``` should be defined outside, but all of our logic with adding the image, loading the quotes, and calling for a random quote should go inside the callback and only run when ```enable == true```. 
+Since this method returns a promise, we need to put our content functionality inside of the callback. ```sayQuote()``` should be defined outside, but all of our logic with adding the image, loading the quotes, and calling for a random quote should go inside the callback and only run when ```enable == true```. Give it a go and see if it works. 
 
 <details>
 <summary>Hidden again? You've got to be kidding me...</summary>
