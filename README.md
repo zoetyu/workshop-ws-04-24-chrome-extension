@@ -39,8 +39,8 @@ Here's a resource for [github markdown](https://guides.github.com/features/maste
 
 *2 questions for the workshop participants to answer (very short answer) when they submit the workshop. These should try to get at something core to the workshop, the what and the why.*
 
-* [ ] 2 reflection questions
-* [ ] 2 reflection questions
+* [ ] How does Electron simplify the creation of a desktop app?
+* [ ] What is a .crx file and when would you use it? 
 
 
 ## Resources
