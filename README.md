@@ -1,4 +1,4 @@
-# CS52 Workshops:  PLATFORMS & EXTENSIONS
+# CS52 Workshops:  Platforms & Extensions
 
 ![](http://i.giphy.com/eUh8NINbZf9Ys.gif)
 
