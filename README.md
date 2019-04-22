@@ -83,8 +83,7 @@ Now it's time to upload our extension to chrome! Go to [chrome://extensions](chr
 
 2. Click on *Load Unpacked* and select the directory that contains your chrome extension.
 
-3. Make sure you turn on chrome extension. If there is an error in the code, it will give you an error message and not let you turn it on.  
-![](readme_images/turn_on.png)
+3. Make sure you turn on chrome extension. If there is an error in the code, it will give you an error message and not let you turn it on. Whenever you have an error, it is convenient to clear the error before reloading to make it clear if the error is from your newest change or just leftover.
 
 4. <a id="refresh"></a>From now on, in order to view your edits, you have to refresh the extension on (chrome://extensions).
 
@@ -122,7 +121,6 @@ In order to add the image to the current page, we'll use some js. Take a stab at
           <img id="clippyImg" src=${imgPath}/>
       `;
       document.body.appendChild(div);
-      
 ```
 
 </details>
@@ -197,7 +195,6 @@ In ```manifest.json``` under ```content_scripts```
  ```
 
  </details>
-
 
 Cool, you should now see the image when you open a new tab. (Remember to [refresh](#refresh) the extension.)
 
