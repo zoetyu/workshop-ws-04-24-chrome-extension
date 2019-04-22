@@ -1,6 +1,6 @@
 # CS52 Workshops:  Platforms & Extensions
 
-![](http://i.giphy.com/eUh8NINbZf9Ys.gif)
+![](https://giphy.com/gifs/24xRxrDCLxhT2/html5)
 
 Brief motivation here as well as in presentation
 
