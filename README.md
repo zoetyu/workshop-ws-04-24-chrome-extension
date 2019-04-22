@@ -33,7 +33,9 @@ Here's a resource for [github markdown](https://guides.github.com/features/maste
 
 ## Summary / What you Learned
 
-* [ ] can be checkboxes
+* [ ] What a Web Platform is 
+* [ ] Basic understanding of Electron
+* [ ] Basic understanding of Chrome Extensions 
 
 ## Reflection
 
