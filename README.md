@@ -42,7 +42,9 @@ This is the initial setup for any chrome extension. In order for the logo png to
        "*.jpg",
        "*.jpeg",
        "*.png",
-       "*.json"
+       "*.json",
+       "*.png/",
+       "*.jpg/"
      ]
 ```
 To the json file so that all images ending with those listed would be able to show up whenever the extension uses them.
@@ -115,7 +117,7 @@ In order to add the image to the current page, we'll use some js. Take a stab at
 
 ```javascript
     var div = document.createElement("div");
-      var imgPath = chrome.extension.getURL('img/clippy.png');
+      var imgPath = chrome.extension.getURL('img/mohawk.png');
       div.innerHTML = `
       <div id="clippy"></div>
           <img id="clippyImg" src=${imgPath}/>
@@ -160,10 +162,14 @@ In ```manifest.json``` under ```content_scripts```
     right: 0;
     margin: 30px;
     background-color: blue;
+    border-radius: .4em;
+    box-shadow: 5px 5px 5px #666;
  }
  
  #speech-bubble {
-    background: #00aabb;;
+    background: #00aabb;
+    color: white;
+    font-weight: bold;
     border-color: black;
     opacity: 0.9;
     border-radius: .4em;
@@ -172,6 +178,7 @@ In ```manifest.json``` under ```content_scripts```
     bottom: 150px;
     right: 30px;
     padding: 20px;
+    box-shadow: 5px 5px 5px #666;
  }
  
  #speech-bubble p{
@@ -196,11 +203,11 @@ In ```manifest.json``` under ```content_scripts```
 
  </details>
 
-Cool, you should now see the image when you open a new tab. (Remember to [refresh](#refresh) the extension.)
+Cool, you should now see the image when you open a new tab. (Remember to [refresh](#refresh) the extension.) Feel free to remove the alert at this point. 
 
 
 ### Add Quotes
-Now, just a picture of Tim, though worth a thousand words, is not worth a pearl of wisdom he dropped in class. Fear not, we have compiled some *inspirational* quotes from class. You’ll find then in a json file called quotes. Start with loading them from the ```quotes.json``` file in ```content.js``` with the ```fetch(URL)``` method. The [fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch#fetch) method returns a promise with the requested results. Here is the example of use from google: 
+Now, just a picture of Tim, though worth a thousand words, is worth more when it includes a pearl of wisdom he dropped in class. Fear not, we have compiled some *inspirational* quotes from class. You’ll find then in a json file called quotes. Start with loading them from the ```quotes.json``` file in ```content.js``` with the ```fetch(URL)``` method. The [fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch#fetch) method returns a promise with the requested results. Here is the example of use from google: 
 
 ```javascript
 fetch('./api/some.json')
