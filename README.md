@@ -19,6 +19,8 @@ Chrome extensions can access all the API’s that a webpage might and some addit
 A chrome extension is a simple and fun way to spruce up your browsing experience, which is where most of us spend our lives, so why not make it yours. It is also the perfect platform for certain projects, the most obvious ones being those that change how we interact with websites or entertainment ones where in-browser is just the right medium.
 
 # Setup
+
+You can fork this repo to get started. It doesn't contain any functional code, but it does include the images that we'll refer to, a ```.gitignore``` file
 ## Manifest File
 Create file manifest.json
 Copy paste following block of quote (we can provide them a logo.png) 
@@ -48,7 +50,10 @@ This is the initial setup for any chrome extension. In order for the logo png to
        "*.jpg/"
      ]
 ```
-To the json file so that all images ending with those listed would be able to show up whenever the extension uses them.
+to the json file  within the overal object so that all images ending with those listed would be able to show up whenever the extension uses them.
+
+## Reminder about JSON
+JSON files store objects. They use the same notation as javascript, except they always put 
 
 # Add Function
 
@@ -86,11 +91,12 @@ Now it's time to upload our extension to chrome! Go to [chrome://extensions](chr
 
 2. Click on *Load Unpacked* and select the directory that contains your chrome extension.
 
-3. Make sure you turn on chrome extension. If there is an error in the code, it will give you an error message and not let you turn it on. Whenever you have an error, it is convenient to clear the error before reloading to make it clear if the error is from your newest change or just leftover.
+3. Make sure the extension is turned on (toggle is blue). This is where errors in the extension will be logged.  
+    * If there is an error in the code, it will give you an error message and not let you turn it on. Whenever you have an error, it is convenient to clear the error before reloading to make it clear if the error is from your newest change or just leftover.
 
 4. <a id="refresh"></a>From now on, in order to view your edits, you have to refresh the extension on (chrome://extensions).
 
-:white_check_mark: Check your progress out! Open a new tab and navigate to another [website](https://home.dartmouth.edu/). You're alert should popup.
+:white_check_mark: Check your progress out! Open a new tab and navigate to another [website](https://home.dartmouth.edu/). Your alert should popup.
 
 ## Actual Logic
 We want to make our own sprite quote bot. This involves:
@@ -118,7 +124,7 @@ In order to add the image to the current page, we'll use some js. Take a stab at
 
 ```javascript
     var div = document.createElement("div");
-      var imgPath = chrome.extension.getURL('img/mohawk.png');
+      var imgPath = chrome.extension.getURL('img/mohawk.jpg');
       div.innerHTML = `
       <div id="clippy"></div>
           <img id="clippyImg" src=${imgPath}/>
@@ -131,9 +137,9 @@ In order to add the image to the current page, we'll use some js. Take a stab at
 ### Styling break
 Phew, let's ditch the js for a second and make that image actually show up on the screen. Feel free to style it how you want or copy our styling.
 
-You also have to make sure the extension knows to load the style sheet.
+You also have to make sure the extension knows to load the style sheet. It's also 
 <details>
-<summary>Where should you put this line of code: ```"css": ["style.css"]```?</summary>
+<summary>Where should you put this line of code: "css": ["style.css"]?</summary>
 
 In ```manifest.json``` under ```content_scripts```
 
@@ -204,11 +210,13 @@ In ```manifest.json``` under ```content_scripts```
 
  </details>
 
-Cool, you should now see the image when you open a new tab. (Remember to [refresh](#refresh) the extension.) Feel free to remove the alert at this point. 
+Cool, you should now see the image when you open a new tab. (Remember to [refresh](#refresh) the extension.) 
+
+Feel free to remove the alert at this point. 
 
 
 ### Add Quotes
-Now, just a picture of Tim, though worth a thousand words, is worth more when it includes a pearl of wisdom he dropped in class. Fear not, we have compiled some *inspirational* quotes from class. You’ll find then in a json file called quotes. Start with loading them from the ```quotes.json``` file in ```content.js``` with the ```fetch(URL)``` method. The [fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch#fetch) method returns a promise with the requested results. Here is the example of use from google: 
+Now, just a picture of Tim, though worth a thousand words, is worth more when it includes a pearl of wisdom he dropped in class. Fear not, we have compiled some *inspirational* quotes from class. You’ll find them in a json file called quotes. Start with loading them from the ```quotes.json``` file in ```content.js``` with the ```fetch(URL)``` method. The [fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch#fetch) method returns a promise with the requested results. Here is the example of use from google: 
 
 ```javascript
 fetch('./api/some.json')
@@ -350,14 +358,15 @@ The background file listens for browser events and acts on them. It can send inf
 
 ### Manifest Setup
 Add the background script to ```manifest.json```
-   ```json
+```json
    "background": {
        "scripts": ["background.js"]
      },
-    ```
+```
 
 Additionally, the extension requires permission to access the current tab, the browswer storage, notification and any webpage. 
-```"permissions": [
+```json
+"permissions": [
        "tabs",
        "storage",
        "notifications",
@@ -375,7 +384,7 @@ The first thing that our background file can do is set some text on the extensio
 chrome.browserAction.setBadgeText({ text: 'OFF' });
 ```
 
-Next we'll set the default state for ```enable``` to ```false``` for *off* and we'll store it in the [Chrome Storage](https://developer.chrome.com/apps/storage). 
+Next we'll set the default state for ```enable``` to ```false``` for *off* and we'll store it in the [Chrome Storage](https://developer.chrome.com/apps/storage). By storing it in storage we'll be able to access it in the content script.
 ```javascript
 // boolean for on/off 
 var enable=false;
@@ -383,9 +392,11 @@ var enable=false;
 chrome.storage.sync.set({"enable": enable});
 ```
 
-Finally, we'll want either run the content script or not run the content script based on the value of ```enable```. At the same time we have to toggle the value of ```enable```, update the text on the logo to indicate the state, and save the value of enable so that we can access it in ```content.js```. 
+We'll want either run the content script or not run the content script based on the value of ```enable```. At the same time, we have to toggle the value of ```enable```, update the text on the logo to indicate the state, and save the value of enable so that we can access it in ```content.js```. 
 
 We use ```chrome.browserAction``` to both read events and set the badge, like above. We also use ```chrome.tabs.executeScript``` to reload the page. 
+
+You can probably think through the pseudo code for this function, but we've included the code here since it's a bit heavy with new syntax for the chrome api. 
 
 ```javascript
 // onclick method
