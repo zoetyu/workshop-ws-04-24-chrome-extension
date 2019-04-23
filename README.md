@@ -21,10 +21,10 @@ A chrome extension is a simple and fun way to spruce up your browsing experience
 # Setup
 
 You can fork this repo to get started. It doesn't contain any functional code, but it does include the images that we'll refer to, a ```.gitignore``` file
+
 ## Manifest File
-Create file manifest.json
-Copy paste following block of quote (we can provide them a logo.png) 
-Create an img folder in the root directory (where manifest.json is) and add in logo.png
+To start with creating any Chrome extension, we would need a manifest.json file. In your root directory, create manifest.json.
+Add in the following code block into the file.
 
 ```json
 {
