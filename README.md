@@ -4,7 +4,7 @@
 
 Just do it. Customize the place where you spend 99.999% your life. The place that burns your eyes when you try to code a new website.
 
-# Overview
+# Overview :star:
 Chrome extensions allow the user to customize chrome with silly add-ons to productivity increasing ones. We’ll walk through building one that falls closer to the silly side than the productive one. Some examples include: 
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) helps with debugging react. 
 * [Honey](https://www.joinhoney.com/) Finds you coupon codes and automatically tries them.
@@ -16,9 +16,9 @@ Chrome extensions can access all the API’s that a webpage might and some addit
 
 A chrome extension is a simple and fun way to spruce up your browsing experience, which is where most of us spend our lives, so why not make it yours. It is also the perfect platform for certain projects, the most obvious ones being those that change how we interact with websites or entertainment ones where in-browser is just the right medium.
 
-# Setup
+# Setup :star:
 
-You can fork this repo to get started. It doesn't contain any functional code, but it does include the images that we'll refer to, a ```.gitignore``` file, and the quotes.
+:fork_and_knife: You can fork this repo to get started. It doesn't contain any functional code, but it does include the images that we'll refer to, a ```.gitignore``` file, and the quotes.
 
 ![](img/docFlow.png)
 
@@ -55,10 +55,12 @@ Object:
 3. Run it on [Dartmouth](https://home.dartmouth.edu/). (Some websites don't play nice.)
 
 
-# Add Functionality
+# Add Functionality :star:
 
 ## Manifest File
-To start with creating any Chrome extension, we need a ```manifest.json``` file. In your workshop directory, create ```manifest.json``` and add the following code block:
+To start with creating any Chrome extension, we need a ```manifest.json``` file. 
+
+:floppy_disk: In your workshop directory, create ```manifest.json``` and add the following code block:
 
 ```json
 {
@@ -73,7 +75,7 @@ To start with creating any Chrome extension, we need a ```manifest.json``` file.
 
 You should have an img directory from when you forked this repo and it should contain logo.png.
 
-This is the initial setup for any chrome extension. In order for the logo png to show up, our extension needs to know that it’s loading those images. Add
+This is the initial setup for any chrome extension. In order for the logo png to show up, our extension needs to know that it’s loading those images. Add: 
 
 ```json
 "web_accessible_resources": [
@@ -88,7 +90,9 @@ This is the initial setup for any chrome extension. In order for the logo png to
 to the json file  within the overal object so that all images ending with those listed would be able to show up whenever the extension uses them.
 
 ## Content File
-Great! But how does our extension know what to do specifically? We can tell it by creating a ```content.js``` file that holds the actual actions of the extension. For this extension, we are making a quote bot with Tim's photo! The content file is specified in ```manifest.json``` so that the browser knows to run the script. 
+Great! But how does our extension know what to do specifically? 
+
+:floppy_disk: We can tell it by creating a ```content.js``` file that holds the actual actions of the extension. For this extension, we are making a quote bot with Tim's photo! The content file is specified in ```manifest.json``` so that the browser knows to run the script. 
 
 Add ```content.js``` as a content script in ```manifest.json```:
 
@@ -126,7 +130,9 @@ Now it's time to upload our extension to chrome! Go to [chrome://extensions](chr
 
 4. <a id="refresh"></a>From now on, in order to view your edits, you have to refresh the extension on (chrome://extensions).
 
-:white_check_mark: Check your progress out! Open a new tab and navigate to another [website](https://home.dartmouth.edu/). Your alert should popup. ![](img/alertShot.png)
+:white_check_mark: Check your progress out! Open a new tab and navigate to another [website](https://home.dartmouth.edu/). Your alert should popup. 
+
+![](img/alertShot.png)
 
 ## Actual Logic
 We want to make our own sprite quote bot. This involves:
@@ -136,7 +142,7 @@ We want to make our own sprite quote bot. This involves:
 Working in ```content.js```...
 
 ### Add an image
-In order to add the image to the current page, we'll use some js. Take a stab at adding a div and img to the body of the html document, just like you would in a main javascript file for a normal page, like your quizz.
+In order to add the image to the current page, we'll use some js. Take a stab at adding a div and img to the body of the html document, just like you would in a main javascript file for a normal page, like your quiz.
 
 We have included some images in ```img/```, feel free to add your own photo or just use ```img/mohawk.jpg``` ![](img/mohawk.jpg). 
 
