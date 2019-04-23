@@ -20,11 +20,47 @@ A chrome extension is a simple and fun way to spruce up your browsing experience
 
 # Setup
 
-You can fork this repo to get started. It doesn't contain any functional code, but it does include the images that we'll refer to, a ```.gitignore``` file
+You can fork this repo to get started. It doesn't contain any functional code, but it does include the images that we'll refer to, a ```.gitignore``` file, and the quotes.
+
+![](img/docFlow.png)
+
+Chrome extensions are created with a couple files: 
+* ```manifest.json```: Tells chrome what scripts, resources, and permissions the extension uses. 
+* ```content.js```: Contains the actual base functionality of the extension, like adding a div to the screen or replacing all ```<img src="">```. 
+* ```background.js```: Listens for browser events, like reloading the page or clicking the on off button. 
+* ```style.js```: Style your additions with some standard CSS. 
+* Any source files: Images, quotes, any information that your extension includes or uses. (You can also get information from web APIs.).
+
+
+
+## Reminder about JSON
+JSON files store objects. They use the same notation as javascript, except they always put variables/values in quotes ```"somekey": "somevalue"```. Arrays are  indicated with ```["entry1", "entry2"]```. Objects with ```{"key": "value"}```
+
+Object: 
+```json 
+{
+    "greeting": "hello, this will be fun.",
+    "quotes": [
+        "you got this",
+        "it's not just copy paste",
+        "but you can do it"
+    ]
+}
+```
+
+## Debugging Steps 
+1. What kind of file? JS, JSON, CSS?
+    * JS: is everything in the right place, is the function completed? 
+    * JSON: probably missing a comma or you adding something in the wrong spot. Are things in the arrays they should be? How about in the objects?
+    * CSS: You know how to do this. 
+2. Did you refresh the extension? 
+3. Run it on [Dartmouth](https://home.dartmouth.edu/). (Some websites don't play nice.)
+
+
+# Add Functionality
 
 ## Manifest File
-To start with creating any Chrome extension, we would need a ```manifest.json``` file. In your root directory, create ```manifest.json```.
-Add in the following code block into the file.
+To start with creating any Chrome extension, we need a ```manifest.json``` file. In your workshop directory, create ```manifest.json``` and add the following code block:
 
 ```json
 {
@@ -37,6 +73,7 @@ Add in the following code block into the file.
 }
 ```
 
+You should have an img directory from when you forked this repo and it should contain logo.png.
 
 This is the initial setup for any chrome extension. In order for the logo png to show up, our extension needs to know that it’s loading those images. Add
 
@@ -52,11 +89,6 @@ This is the initial setup for any chrome extension. In order for the logo png to
 ```
 to the json file  within the overal object so that all images ending with those listed would be able to show up whenever the extension uses them.
 
-## Reminder about JSON
-JSON files store objects. They use the same notation as javascript, except they always put 
-
-# Add Function
-
 ## Content File
 Great! But how does our extension know what to do specifically? We can tell it by creating a ```content.js``` file that holds the actual actions of the extension. For this extension, we are making a quote bot with Tim's photo! The content file is specified in ```manifest.json``` so that the browser knows to run the script. 
 
@@ -68,7 +100,7 @@ Add ```content.js``` as a content script in ```manifest.json```:
         "matches": [
              "<all_urls>"
         ],
-        "js": ["content.js"],
+        "js": ["content.js"]
     }
 ]
 ```
@@ -96,7 +128,7 @@ Now it's time to upload our extension to chrome! Go to [chrome://extensions](chr
 
 4. <a id="refresh"></a>From now on, in order to view your edits, you have to refresh the extension on (chrome://extensions).
 
-:white_check_mark: Check your progress out! Open a new tab and navigate to another [website](https://home.dartmouth.edu/). Your alert should popup.
+:white_check_mark: Check your progress out! Open a new tab and navigate to another [website](https://home.dartmouth.edu/). Your alert should popup. ![](img/alertShot.png)
 
 ## Actual Logic
 We want to make our own sprite quote bot. This involves:
@@ -106,9 +138,9 @@ We want to make our own sprite quote bot. This involves:
 Working in ```content.js```...
 
 ### Add an image
-We have included some images in ```img/```, feel free to add your own photo or just use ```img/mohawk.jpg``` ![](img/mohawk.jpg). 
-
 In order to add the image to the current page, we'll use some js. Take a stab at adding a div and img to the body of the html document, just like you would in a main javascript file for a normal page, like your quizz.
+
+We have included some images in ```img/```, feel free to add your own photo or just use ```img/mohawk.jpg``` ![](img/mohawk.jpg). 
 
 <details>
     <summary>Hints:</summary> 
@@ -138,6 +170,7 @@ In order to add the image to the current page, we'll use some js. Take a stab at
 Phew, let's ditch the js for a second and make that image actually show up on the screen. Feel free to style it how you want or copy our styling.
 
 You also have to make sure the extension knows to load the style sheet. It's also 
+
 <details>
 <summary>Where should you put this line of code: "css": ["style.css"]?</summary>
 
@@ -216,7 +249,16 @@ Feel free to remove the alert at this point.
 
 
 ### Add Quotes
-Now, just a picture of Tim, though worth a thousand words, is worth more when it includes a pearl of wisdom he dropped in class. Fear not, we have compiled some *inspirational* quotes from class. You’ll find them in a json file called quotes. Start with loading them from the ```quotes.json``` file in ```content.js``` with the ```fetch(URL)``` method. The [fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch#fetch) method returns a promise with the requested results. Here is the example of use from google: 
+Now, just a picture of Tim, though worth a thousand words, is worth more when it includes a pearl of wisdom he dropped in class. Fear not, we have compiled some *inspirational* quotes from class. You’ll find them in a json file called quotes. 
+
+This will have two main parts: 
+1. Loading the quotes
+2. Picking a quote to display and adding it to the div
+
+#### Loading Quotes
+Start with loading them from the ```quotes.json``` file in ```content.js``` with the ```fetch(URL)``` method. The [fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch#fetch) method returns a promise with the requested results. 
+
+Here is the example of use from google: 
 
 ```javascript
 fetch('./api/some.json')
@@ -239,7 +281,7 @@ fetch('./api/some.json')
   });
 ``` 
 
-Try using this method to fetch the quotes.
+Try using this method to fetch the quotes and save them.
 
 <details>
     <summary>Ok, so maybe you’d prefer to copy and paste…THAT’S why yOu NEED this ExTimsion. </summary>
@@ -256,6 +298,7 @@ Try using this method to fetch the quotes.
 ```
 </details>
 
+#### Say Quote
 Alright, so you got the quotes. Now what? Let's pick one at random and update the sprite to say it at a random interval. 
 
 Create a function to randomly pick and append a quote from the quotes passed as its argument whenever called. 
@@ -392,7 +435,13 @@ var enable=false;
 chrome.storage.sync.set({"enable": enable});
 ```
 
-We'll want either run the content script or not run the content script based on the value of ```enable```. At the same time, we have to toggle the value of ```enable```, update the text on the logo to indicate the state, and save the value of enable so that we can access it in ```content.js```. 
+What do we have to do when the user turns the extension on or off? If this were and ```onClick``` method in react, what would you do?
+
+If you thought...we have to:
+* toggle the value of ```enable```
+* update the text on the logo to indicate the state
+* save the value of enable so that we can access it in ```content.js```. (We'll want either run the content script functionality or not based on the value of ```enable```.)
+You were right!
 
 We use ```chrome.browserAction``` to both read events and set the badge, like above. We also use ```chrome.tabs.executeScript``` to reload the page. 
 
@@ -420,8 +469,8 @@ chrome.browserAction.onClicked.addListener((tab) => {
 ```
 
 
-### Incorporate into Content Script
-Now we only want the content script to run when the extension is enabled. In ```background.js``` we stored the variable ```enable``` in the browser storage, so we can get it in the content script using the [storage sync](https://developer.chrome.com/apps/storage) api.
+### Incorporate into **Content Script**
+Now we only want the content script to run when the extension is enabled. In ```background.js``` we stored the variable ```enable``` in the browser storage, so that we can get it in the ```content.js``` script using the [storage sync](https://developer.chrome.com/apps/storage) api. The storage api syntax is: 
 
 ```javascript
 chrome.storage.sync.get("enable", function(result) {
@@ -429,20 +478,27 @@ chrome.storage.sync.get("enable", function(result) {
 }
 ``` 
 
-Since this method returns a promise, we need to put our content functionality inside of the callback. ```sayQuote()``` should be defined outside, but all of our logic with adding the image, loading the quotes, and calling for a random quote should go inside the callback and only run when ```enable == true```. Give it a go and see if it works. 
+Since this method returns a promise, we need to put our content functionality inside of the callback. All the functionality of ```content.js``` should be inside a check of enable, except ```sayQuote()``` which can be defined outside as it is just a function we are using. 
+
+So put all of your logic for adding the image, loading the quotes, and calling ```sayQuote()``` inside the callback and only run when ```enable == true```. Give it a go and see if you can get it to work. 
 
 <details>
 <summary>Hidden again? You've got to be kidding me...</summary>
 
+Once your done ```content.js``` should look like this:
+
 ```javascript
+// alert("Hello from your Chrome extension!");
+
+// if you want to use storage from chrome, you can access this way: 
 chrome.storage.sync.get("enable", (res) => {
+    // if enabled run
     if (res.enable) {
         // add the div for the quotes and the image the page
         var div = document.createElement("div");
-        var imgPath = chrome.extension.getURL("img/sunset.png");
+        var imgPath = chrome.extension.getURL('img/mohawk.jpg');
         div.innerHTML = `<div id="clippy"></div>
-                            <img id="clippyImg" src=${imgPath}/>
-                        `;
+                            <img id="clippyImg" src=${imgPath}/>`;
         document.body.appendChild(div);
     
         // load the quotes from the json file
@@ -462,6 +518,14 @@ chrome.storage.sync.get("enable", (res) => {
     }    
 
 });
+
+// Pick a random quote and add it to the page
+function sayQuote(qts) {
+    var quote = qts.quotes[Math.floor(Math.random() * qts.quotes.length)];
+    document.getElementById("clippy").innerHTML = `<div id="speech-bubble"><p>${quote}</p></div>`;
+    console.log(quote);
+}
+
 ```
 </details>
 
@@ -510,9 +574,7 @@ You just learned how to make your own chrome extension! Hopefully, it was a pain
 Chrome extensions work similarly to websites and can access most of the APIs that a website could. Just like websites they do require a couple different files, but most of the functionality happens in one or two base js files. 
 
 # Reflection
-* [ ] How does Electron simplify the creation of a desktop app?
-* [ ] What is a .crx file and when would you use it? 
-1. What is a chrome extension? 
+1. How do all of the chrome extension files interact? 
 2. Why would you want to use the chrome extension platform for a project, instead of making a standalone website? 
 
 # Resources
