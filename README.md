@@ -456,11 +456,11 @@ chrome.storage.sync.get("enable", (res) => {
 
 Now your extension should only show up and display quotes when you turn it on in the toolbar! Woohoo!! 
 
-So
+**So**:exclamation:
 
-Much
+**Much**:exclamation::exclamation:
 
-Motivation
+**Motivation**:exclamation::exclamation::exclamation:
 
 # Publish
 You can use the steps above to run the extension in your own browser, but actually publishing the extension takes a bit more work and $$, so we won't cover it here, but if you are interested here are the [Chrome instructions for publishing an extension](https://developer.chrome.com/webstore/publish)
