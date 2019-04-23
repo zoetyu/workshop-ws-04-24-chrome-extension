@@ -2,7 +2,7 @@
 
 ![](https://media.giphy.com/media/24xRxrDCLxhT2/giphy.gif)
 
-Just do it. Customize the place where you spend half your life. The place that burns your eyes as you try to code a new website.
+Just do it. Customize the place where you spend 99.999% your life. The place that burns your eyes when you try to code a new website.
 
 :sunglasses: GitHub markdown files [support emoji notation](http://www.emoji-cheat-sheet.com/)
 
@@ -16,7 +16,8 @@ Chrome extensions allow the user to customize chrome with silly add-ons to produ
 
 Chrome extensions can access all the API’s that a webpage might and some additional ones for interacting with chrome in ways that only extensions can. Extensions are set up much like a webpage, using js, html and css. Just like websites, extensions have a huge range of possibilities. 
 
-A chrome extension is a simple and fun way to spruce up your browsing experience, which is where most of us spend our lives, so why not make it yours. It is also the perfect platform for some projects, the obvious ones which change how we interact with websites to entertainment ones where maybe in-browser is just the right medium. 
+A chrome extension is a simple and fun way to spruce up your browsing experience, which is where most of us spend our lives, so why not make it yours. It is also the perfect platform for certain projects, the most obvious ones being those that change how we interact with websites or entertainment ones where in-browser is just the right medium.
+
 # Setup
 ## Manifest File
 Create file manifest.json
@@ -496,7 +497,6 @@ Now it's time to upload our extension to chrome!
 You just learned how to make your own chrome extension! Hopefully, it was a painless experience. You can use it to create fun extensions like this or to make more powerful ones to change how you browse the web. 
 
 Chrome extensions work similarly to websites and can access most of the APIs that a website could. Just like websites they do require a couple different files, but most of the functionality happens in one or two base js files. 
-
 
 # Reflection
 * [ ] How does Electron simplify the creation of a desktop app?
