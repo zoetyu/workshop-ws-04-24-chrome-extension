@@ -23,7 +23,7 @@ A chrome extension is a simple and fun way to spruce up your browsing experience
 You can fork this repo to get started. It doesn't contain any functional code, but it does include the images that we'll refer to, a ```.gitignore``` file
 
 ## Manifest File
-To start with creating any Chrome extension, we would need a manifest.json file. In your root directory, create manifest.json.
+To start with creating any Chrome extension, we would need a ```manifest.json``` file. In your root directory, create ```manifest.json```.
 Add in the following code block into the file.
 
 ```json
@@ -58,7 +58,7 @@ JSON files store objects. They use the same notation as javascript, except they 
 # Add Function
 
 ## Content File
-The ```content.js``` file holds the actual actions of the extension: what the extension does. For this extension, we pick a random quote to display along with a picture of Tim so you can place the quote. The content file is specified in ```manifest.json``` so that the browser knows to run the script. 
+Great! But how does our extension know what to do specifically? We can tell it by creating a ```content.js``` file that holds the actual actions of the extension. For this extension, we are making a quote bot with Tim's photo! The content file is specified in ```manifest.json``` so that the browser knows to run the script. 
 
 Add ```content.js``` as a content script in ```manifest.json```:
 
