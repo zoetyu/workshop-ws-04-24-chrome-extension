@@ -575,3 +575,5 @@ Remember to submit whatever you have, as well as *short* reflection answers, on 
 Our idea is also closely related to their idea --> we all love Tim. 
 
 We also used the [clippy extension](https://chrome.google.com/webstore/detail/clippy-the-useless-paperc/fmbcdhjmhddnnpeomknikdbboejbhdcl?hl=en-US) to start working through building the extension and for the idea. 
+
+The tutorial is also inspired by [this other tutorial on creating Chrome extensions from scratch](https://thoughtbot.com/blog/how-to-make-a-chrome-extension)
