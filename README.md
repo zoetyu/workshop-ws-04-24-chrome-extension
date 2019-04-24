@@ -368,7 +368,7 @@ Now you have a working chrome extension, except it is always on… And maybe at 
 On to making the on off button! 
 
 # On and Off Button :no_entry_sign:
-In order for a chrome extension to access browser events, like clicks, the extension needs another file, a background file that listens for events and responds to them. Since our on-off button will need to respond to clicks, we need to use a background file, as well as some in browser storage to pass the on-off state to the content script. 
+To create a button we'll need access browser events, specifically the click when the user clicks on the on off button. To access browser events, like clicks, in a chrome extension, the extension needs another file, a background file that listens for events and responds to them. Once on-off button responds to clicks, we will utilize in browser storage to pass the on-off state to the content script. 
 
 ## Background File 
 The background file listens for browser events and acts on them. It can send information to other files via messages or set browser storage. In our case, it just listens for user clicks on the extension’s button in the toolbar (top right of your browser). 
