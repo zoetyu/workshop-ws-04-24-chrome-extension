@@ -116,7 +116,7 @@ alert("Hello from your Chrome extension!");
 
 How do we see this test? We upload our extension. 
 
-## Testing your extension<sup id="fnl1">[Resources](#fn1)</sup>
+## Testing your extension<sup id="fnl1">[1](#fn1)</sup>
 Now it's time to upload our extension to chrome! Go to [chrome://extensions](https:chrome://extensions/)
 
 ![](img/extensionsDevMode.png)
