@@ -26,7 +26,7 @@ It doesn't contain any functional code, but it does include the images that we'l
 
 Chrome extensions are created with a couple files: 
 * ```manifest.json```: Tells chrome what scripts, resources, and permissions the extension uses. 
-* ```content.js```: Contains the actual base functionality of the extension, like adding a div to the screen or replacing all ```<img src="">```. 
+* ```content.js```: Contains the actual base functionality of the extension, like adding a div to the screen or replacing all ```<img src="" />```. 
 * ```background.js```: Listens for browser events, like reloading the page or clicking the on off button. 
 * ```style.js```: Style your additions with some standard CSS. 
 * Any source files: Images, quotes, any information that your extension includes or uses. (You can also get information from web APIs.).
@@ -54,7 +54,7 @@ Object:
     * JSON: probably missing a comma or you adding something in the wrong spot. Are things in the arrays they should be? How about in the objects?
     * CSS: You know how to do this!
 2. Did you refresh the extension? Remember chrome://extensions/ !
-3. Run it on [Dartmouth.edu](https://home.dartmouth.edu/). (Some websites don't play nice.)
+3. Run it on [Dartmouth.edu](https://home.dartmouth.edu/) (Some websites don't play nice.)
 
 
 # Add Functionality :star:
@@ -171,7 +171,7 @@ We have included some images in ```img/```, feel free to add your own photo or j
       var imgPath = chrome.extension.getURL('img/mohawk.jpg');
       div.innerHTML = `
       <div id="clippy"></div>
-          <img id="clippyImg" src=${imgPath}/>
+          <img id="clippyImg" src=${imgPath} />
       `;
       document.body.appendChild(div);
 ```
