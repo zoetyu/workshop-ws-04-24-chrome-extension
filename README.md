@@ -16,8 +16,13 @@ Chrome extensions can access all the API’s that a webpage might and some addit
 
 A chrome extension is a simple and fun way to spruce up your browsing experience, which is where most of us spend our lives, so why not make it yours. It is also the perfect platform for certain projects, the most obvious ones being those that change how we interact with websites or entertainment ones where in-browser is just the right medium.
 
+![](img/fullScreen.png)
+![](img/detailScreen.png)
+
+Today we'll make an extension that looks like this. Yup, that's Tim and those are all quotes from his presentations. They'll stay with you when you need some motivation on our labs or crushing your final project. The quotes display randomly, but after you are done you'll be able to change the extension to show whatever quotes you want, in whatever order, and with whatever picture you want. But for now let's get started :excited:. 
+
 ## Disclaimer :no_good:
-Spaces, commas, semi-colons and other syntactical issues will come up if you are not careful! This is our warning to you to **make sure to think through the code** and **TRY NOT TO COPY AND PASTE**!
+Spaces, commas, semi-colons and other syntactical issues will come up if you are not careful! This is our warning to you to **make sure to think through the code** and **TRY NOT TO JUST COPY AND PASTE**!
 
 # Setup :star:
 
