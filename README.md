@@ -94,11 +94,11 @@ Now all the images ending with those listed would be able to show up whenever th
 ## Content File :information_desk_person:
 Great! But how does our extension know what to do specifically? 
 
-:floppy_disk: We can tell it by creating a ```content.js``` file that holds the actual actions of the extension. 
+We can tell it by making a ```content.js``` file that will hold the actual actions of the extension. 
 
 For this extension, we are making a quote bot with Tim's photo! The content file is specified in ```manifest.json``` so that the browser knows to run the script. 
 
-Add ```content.js``` as a content script in ```manifest.json```:
+First, add ```content.js``` as a content script in ```manifest.json``` so it knows to load it:
 
 ```json
 "content_scripts": [
@@ -114,7 +114,7 @@ Add ```content.js``` as a content script in ```manifest.json```:
 
 Now that chrome will look to run ```content.js``` we have to create it. 
 
-:floppy_disk: Create ```content.js``` in root directory. Let's test it, inside ```content.js``` add an alert (or a console log):
+:floppy_disk: Create ```content.js``` in your root directory. Let's test it, inside ```content.js``` add an alert (or a console log):
 
 ```javascript
 alert("Hello from your Chrome extension!");
@@ -123,7 +123,7 @@ alert("Hello from your Chrome extension!");
 How do we see this test? We upload our extension. 
 
 ## Testing your extension<sup id="fnl1">[1](#fn1)</sup>
-Now it's time to upload our extension to chrome! Go to [chrome://extensions](https:chrome://extensions/)
+Now it's time to upload our extension to chrome! Go to chrome://extensions (copy-paste into Chrome)
 
 ![](img/extensionsDevMode.png)
 
@@ -148,7 +148,7 @@ What does this involve?
 
 Working in ```content.js```...
 
-### Add an image
+### Add an image :foggy:
 In order to add the image to the current page, we'll use some js. Take a stab at adding a div and img to the body of the html document, just like you would in a main javascript file for a normal page. This is just like your quiz!
 
 We have included some images in ```img/```, feel free to add your own photo or just use ```img/mohawk.jpg``` 
@@ -201,6 +201,7 @@ In ```manifest.json``` under ```content_scripts```!
 ```
 </details>
 
+:floppy_disk: Ok, now time to make a ```style.css``` in root directory.
 If you're making your own style, make sure to have styling for:
 * the icon image (#clippyImg)
 * the Speech Bubble that will contain the quote (#speech-bubble, #speech-bubble:after)
@@ -319,7 +320,7 @@ Alright, so you got the quotes. Now what? Let's pick one at random and update th
 Create a function to randomly pick and append a quote from the quotes passed as its argument whenever called. 
 
 <details>
-<summary>Yup, we hid this solution too. **"Be the webdev!"**</summary>
+<summary>Yup, we hid this solution too. "Be the webdev!"</summary>
 <details><summary>Just one more try?</summary>
 
  ```javascript
@@ -355,59 +356,7 @@ How about as soon as we load the quotes in ```content.js```.
 
 Here we fetch the json file, call the function immediately, and invoke the function periodically.
 
-
-<!-- ## Style
-```style.js``` sound familiar? If you loved CS50 you probably hate stylesheets, but maybe ENGS 12 has brought you to see the light. This file contains the css styling that you would include in any webpage. Can you figure out where to add this line of code? 
-
-         ```"css": ["style.css"]```
-
-(It should go in the manifest file, under content_scripts)
-
-Now add some styling to style.css:
-
-(Inside style.css)
-
-```#clippyImg{
-   width: 100px;
-   height: 100px;
-   position: fixed;
-   bottom: 0;
-   right: 0;
-   margin: 30px;
-}
-
-#speech-bubble {
-   background: #00aabb;;
-   border-color: black;
-   opacity: 0.9;
-   border-radius: .4em;
-   width: 180px;
-   position: fixed;
-   bottom: 150px;
-   right: 100px;
-   padding: 20px;
-}
-
-#speech-bubble p{
-   opacity: 1;
-}
-
-#speech-bubble:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border: 20px solid transparent;
-    border-top-color: #00aabb;
-    border-bottom: 0;
-    border-right: 0;
-    margin-left: -10px;
-    margin-bottom: -20px;
-}``` -->
-
-Alright so now you have a working chrome extension, except it is always on… And maybe at a certain point you’d rather have Shia Lebeouf yell at you than read a pearl of CS52 wisdom. 
+Now you have a working chrome extension, except it is always on… And maybe at a certain point you’d rather have Shia Lebeouf yell at you than read a pearl of CS52 wisdom. 
 On to making the on off button! 
 
 # On and Off Button :no_entry_sign:
