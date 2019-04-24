@@ -571,7 +571,7 @@ Remember to submit whatever you have, as well as *short* reflection answers, on 
     * [Chrome Getting Started with Extensions](https://developer.chrome.com/extensions/getstarted)
 * [Chrome instructions for publishing an extension](https://developer.chrome.com/webstore/publish)
 * [Chrome Storage](https://developer.chrome.com/apps/storage)
-* [Chrome Extensions with Vanilla JS] (https://medium.com/javascript-in-plain-english/https-medium-com-javascript-in-plain-english-how-to-build-a-simple-chrome-extension-in-vanilla-javascript-e52b2994aeeb) 
+* [Chrome Extensions with Vanilla JS](https://medium.com/javascript-in-plain-english/https-medium-com-javascript-in-plain-english-how-to-build-a-simple-chrome-extension-in-vanilla-javascript-e52b2994aeeb) 
 
 # Sources
 <a id="fn1">1</a>The extension loading section is basically copied from [last year’s workshop group](https://github.com/dartmouth-cs52-18S/workshop-ws-chrome-extension/blob/master/README.md). [↩](#fnl1)
