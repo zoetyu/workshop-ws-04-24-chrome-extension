@@ -31,7 +31,7 @@ Chrome extensions are created with a couple files:
 
 
 
-## Reminder about JSON
+## Reminder about JSON :sunglasses:
 JSON files store objects. They use the same notation as javascript, except they always put variables/values in quotes ```"somekey": "somevalue"```. Arrays are  indicated with ```["entry1", "entry2"]```. Objects with ```{"key": "value"}```
 
 Object: 
@@ -46,18 +46,18 @@ Object:
 }
 ```
 
-## Debugging Steps 
+## Debugging Steps :bug:
 1. What kind of file? JS, JSON, CSS?
     * JS: is everything in the right place, is the function completed? 
     * JSON: probably missing a comma or you adding something in the wrong spot. Are things in the arrays they should be? How about in the objects?
-    * CSS: You know how to do this. 
-2. Did you refresh the extension? 
-3. Run it on [Dartmouth](https://home.dartmouth.edu/). (Some websites don't play nice.)
+    * CSS: You know how to do this!
+2. Did you refresh the extension? Remember chrome://extensions/ !
+3. Run it on [Dartmouth.edu](https://home.dartmouth.edu/). (Some websites don't play nice.)
 
 
 # Add Functionality :star:
 
-## Manifest File
+## Manifest File :boom:
 To start with creating any Chrome extension, we need a ```manifest.json``` file. 
 
 :floppy_disk: In your workshop directory, create ```manifest.json``` and add the following code block:
@@ -73,7 +73,7 @@ To start with creating any Chrome extension, we need a ```manifest.json``` file.
 }
 ```
 
-You should have an img directory from when you forked this repo and it should contain logo.png.
+You should have an img directory from when you forked this repo and it should contain logo.png. This will be the image that shows up inour chrome toolbar!
 
 This is the initial setup for any chrome extension. In order for the logo png to show up, our extension needs to know that it’s loading those images. Add: 
 
@@ -87,9 +87,9 @@ This is the initial setup for any chrome extension. In order for the logo png to
        "*.jpg/"
      ]
 ```
-to the json file  within the overal object so that all images ending with those listed would be able to show up whenever the extension uses them.
+to the ```manifest.json``` file  within the overal object so that all images ending with those listed would be able to show up whenever the extension uses them.
 
-## Content File
+## Content File :information_desk_person:
 Great! But how does our extension know what to do specifically? 
 
 :floppy_disk: We can tell it by creating a ```content.js``` file that holds the actual actions of the extension. For this extension, we are making a quote bot with Tim's photo! The content file is specified in ```manifest.json``` so that the browser knows to run the script. 
@@ -108,7 +108,7 @@ Add ```content.js``` as a content script in ```manifest.json```:
 ```
 ```content.js``` is our main js file and describes the behavior of the extension. Note that in ```“matches”``` the ```“<all_urls>”``` is a descriptor telling chrome that our extension applies to all urls and should always run. 
 
-Now that chrome will look to run ```content.js``` we have to create it. Create ```content.js``` in root directory. Let's test it, inside ```content.js``` add an alert (or a console log);
+Now that chrome will look to run ```content.js``` we have to create it. Create ```content.js``` in root directory. Let's test it, inside ```content.js``` add an alert (or a console log):
 
 ```javascript
 alert("Hello from your Chrome extension!");
@@ -116,8 +116,8 @@ alert("Hello from your Chrome extension!");
 
 How do we see this test? We upload our extension. 
 
-## Testing your extension<sup id="fnl1">[1](#fn1)</sup>
-Now it's time to upload our extension to chrome! Go to [chrome://extensions](chrome://extensions/)
+## Testing your extension<sup id="fnl1">[Resources](#fn1)</sup>
+Now it's time to upload our extension to chrome! Go to [chrome://extensions](https:chrome://extensions/)
 
 ![](img/extensionsDevMode.png)
 
@@ -126,25 +126,27 @@ Now it's time to upload our extension to chrome! Go to [chrome://extensions](chr
 2. Click on *Load Unpacked* and select the directory that contains your chrome extension.
 
 3. Make sure the extension is turned on (toggle is blue). This is where errors in the extension will be logged.  
-    * If there is an error in the code, it will give you an error message and not let you turn it on. Whenever you have an error, it is convenient to clear the error before reloading to make it clear if the error is from your newest change or just leftover.
+    * :question: If there is an **error** in the code, it will give you an error message and not let you turn the extension on. Whenever you have an error, it is convenient to *clear the error* before reloading to make it clear if the error is from your newest change or just leftover. Wave us down if you have questions!
 
 4. <a id="refresh"></a>From now on, in order to view your edits, you have to refresh the extension on (chrome://extensions).
 
-:white_check_mark: Check your progress out! Open a new tab and navigate to another [website](https://home.dartmouth.edu/). Your alert should popup. 
+:white_check_mark: Check your progress out! Open a new tab and navigate to another website. We recommend [dartmouth.edu] (https://home.dartmouth.edu/). Your alert should popup!
 
 ![](img/alertShot.png)
 
-## Actual Logic
-We want to make our own sprite quote bot. This involves:
-1. Putting an image on the screen
+## Actual Logic :metal:
+TBH this alert is kinda annoying. We want to make our own sprite quote bot. 
+What does this involve?
+1. Loading an image on the screen
 2. Adding quotes to it
 
 Working in ```content.js```...
 
 ### Add an image
-In order to add the image to the current page, we'll use some js. Take a stab at adding a div and img to the body of the html document, just like you would in a main javascript file for a normal page, like your quiz.
+In order to add the image to the current page, we'll use some js. Take a stab at adding a div and img to the body of the html document, just like you would in a main javascript file for a normal page. This is just like your quiz!
 
-We have included some images in ```img/```, feel free to add your own photo or just use ```img/mohawk.jpg``` ![](img/mohawk.jpg). 
+We have included some images in ```img/```, feel free to add your own photo or just use ```img/mohawk.jpg``` 
+![](img/mohawk.jpg). 
 
 <details>
     <summary>Hints:</summary> 
@@ -170,15 +172,15 @@ We have included some images in ```img/```, feel free to add your own photo or j
 
 </details>
 
-### Styling break
+### Styling break :sparkling_heart:
 Phew, let's ditch the js for a second and make that image actually show up on the screen. Feel free to style it how you want or copy our styling.
 
-You also have to make sure the extension knows to load the style sheet. It's also 
+You also have to make sure the extension knows to load the style sheet.
 
 <details>
 <summary>Where should you put this line of code: "css": ["style.css"]?</summary>
 
-In ```manifest.json``` under ```content_scripts```
+In ```manifest.json``` under ```content_scripts```!
 
 ```json
 "content_scripts": [
@@ -193,6 +195,9 @@ In ```manifest.json``` under ```content_scripts```
 ```
 </details>
 
+If you're making your own style, make sure to have styling for:
+* the icon image (#clippyImg)
+* the Speech Bubble that will contain the quote (#speech-bubble, #speech-bubble:after)
 
 <details>
     <summary>Our Style</summary>
@@ -249,20 +254,20 @@ In ```manifest.json``` under ```content_scripts```
 
 Cool, you should now see the image when you open a new tab. (Remember to [refresh](#refresh) the extension.) 
 
-Feel free to remove the alert at this point. 
+Feel free to comment out the alert at this point. 
 
 
-### Add Quotes
+### Add Quotes :speech_balloon:
 Now, just a picture of Tim, though worth a thousand words, is worth more when it includes a pearl of wisdom he dropped in class. Fear not, we have compiled some *inspirational* quotes from class. You’ll find them in a json file called quotes. 
 
 This will have two main parts: 
 1. Loading the quotes
 2. Picking a quote to display and adding it to the div
 
-#### Loading Quotes
+#### Loading Quotes :page_with_curl:
 Start with loading them from the ```quotes.json``` file in ```content.js``` with the ```fetch(URL)``` method. The [fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch#fetch) method returns a promise with the requested results. 
 
-Here is the example of use from google: 
+Here is an **example** of proper fetch use from google: 
 
 ```javascript
 fetch('./api/some.json')
@@ -288,7 +293,7 @@ fetch('./api/some.json')
 Try using this method to fetch the quotes and save them.
 
 <details>
-    <summary>Ok, so maybe you’d prefer to copy and paste…THAT’S why yOu NEED this ExTimsion. </summary>
+    <summary>Ok, so maybe you’d prefer to copy and paste…THAT’S why yOu NEED this ExTimsion. :triumph: </summary>
 
 ```javascript
         // load the quotes from the json file
@@ -302,14 +307,14 @@ Try using this method to fetch the quotes and save them.
 ```
 </details>
 
-#### Say Quote
+#### Say Quote :speak_no_evil:
 Alright, so you got the quotes. Now what? Let's pick one at random and update the sprite to say it at a random interval. 
 
 Create a function to randomly pick and append a quote from the quotes passed as its argument whenever called. 
 
 <details>
-<summary>Yup, we hid this solution too. "Be the webdev!"</summary>
-<details><summary>Just one more attempt?</summary>
+<summary>Yup, we hid this solution too. **"Be the webdev!"**</summary>
+<details><summary>Just one more try?</summary>
 
  ```javascript
  function sayQuote(qts) {
@@ -322,7 +327,7 @@ Create a function to randomly pick and append a quote from the quotes passed as 
 
  </details>
 
-Where should we call this function? How about as soon as we load the quotes. 
+Where should we call this function? How about as soon as we load the quotes in ```content.js```. 
 
 ```javascript
 // load the quotes from the json file
@@ -397,13 +402,13 @@ Now add some styling to style.css:
 Alright so now you have a working chrome extension, except it is always on… And maybe at a certain point you’d rather have Shia Lebeouf yell at you than read a pearl of CS52 wisdom. 
 On to making the on off button. 
 
-# On and Off Button 
+# On and Off Button :mobile_phone_off:
 In order for a chrome extension to access browser events, like clicks, the extension needs another file, a background file that listens for events and responds to them. Since our on-off button will need to respond to clicks, we need to use a background file, as well as some in browser storage to pass the on-off state to the content script. 
 
 ## Background File 
-The background file listens for browser events and acts on them. It can send information to other files via messages or set browser storage. In our case it just listens for user clicks on the extension’s button in the toolbar (top right of your browser). 
+The background file listens for browser events and acts on them. It can send information to other files via messages or set browser storage. In our case, it just listens for user clicks on the extension’s button in the toolbar (top right of your browser). 
 
-### Manifest Setup
+### Manifest Setup :boom:
 Add the background script to ```manifest.json```
 ```json
    "background": {
@@ -423,7 +428,7 @@ Additionally, the extension requires permission to access the current tab, the b
 ```
 
 ### Background Logic
-Then create the background.js file.
+:floppy_disk: Then create a ```background.js``` file.
 
 The first thing that our background file can do is set some text on the extension's logo to indicate whether it is on or off: 
 ```javascript
@@ -431,7 +436,7 @@ The first thing that our background file can do is set some text on the extensio
 chrome.browserAction.setBadgeText({ text: 'OFF' });
 ```
 
-Next we'll set the default state for ```enable``` to ```false``` for *off* and we'll store it in the [Chrome Storage](https://developer.chrome.com/apps/storage). By storing it in storage we'll be able to access it in the content script.
+Next we'll set the default state for ```enable``` to ```false``` for *off* and we'll store it in [Chrome Storage](https://developer.chrome.com/apps/storage). By storing it in Chrome storage, we'll be able to access it in the content script.
 ```javascript
 // boolean for on/off 
 var enable=false;
@@ -441,7 +446,7 @@ chrome.storage.sync.set({"enable": enable});
 
 What do we have to do when the user turns the extension on or off? If this were and ```onClick``` method in react, what would you do?
 
-If you thought...we have to:
+We will need to:
 * toggle the value of ```enable```
 * update the text on the logo to indicate the state
 * save the value of enable so that we can access it in ```content.js```. (We'll want either run the content script functionality or not based on the value of ```enable```.)
@@ -449,7 +454,7 @@ You were right!
 
 We use ```chrome.browserAction``` to both read events and set the badge, like above. We also use ```chrome.tabs.executeScript``` to reload the page. 
 
-You can probably think through the pseudo code for this function, but we've included the code here since it's a bit heavy with new syntax for the chrome api. 
+You can probably think through the pseudo code for this function, but we've included the code here since it's a bit heavy with new syntax for the chrome api. :muscle:
 
 ```javascript
 // onclick method
@@ -482,14 +487,16 @@ chrome.storage.sync.get("enable", function(result) {
 }
 ``` 
 
-Since this method returns a promise, we need to put our content functionality inside of the callback. All the functionality of ```content.js``` should be inside a check of enable, except ```sayQuote()``` which can be defined outside as it is just a function we are using. 
+Since this method returns a promise, we need to put our content functionality inside of the callback. 
+
+Go into your ```content.js.```. All of our functionality should be inside a check of enable, except ```sayQuote()``` which can be defined outside as it is just a function we are using.
 
 So put all of your logic for adding the image, loading the quotes, and calling ```sayQuote()``` inside the callback and only run when ```enable == true```. Give it a go and see if you can get it to work. 
 
 <details>
 <summary>Hidden again? You've got to be kidding me...</summary>
 
-Once your done ```content.js``` should look like this:
+Once you are done, your ```content.js``` should look like this:
 
 ```javascript
 // alert("Hello from your Chrome extension!");
@@ -541,9 +548,8 @@ Now your extension should only show up and display quotes when you turn it on in
 
 **Motivation**:exclamation::exclamation::exclamation:
 
-# Publish
-You can use the steps above to run the extension in your own browser, but actually publishing the extension takes a bit more work and $$, so we won't cover it here, but if you are interested here are the [Chrome instructions for publishing an extension](https://developer.chrome.com/webstore/publish)
-
+# Publish :stuck_out_tongue_closed_eyes:
+You can use the steps above to run the extension in your own browser, but actually publishing the extension takes a bit more work and :money_with_wings:, so we won't cover it here, but if you are interested here are the [Chrome instructions for publishing an extension](https://developer.chrome.com/webstore/publish).
 
 
 <!-- # Uploading Your Extension*
@@ -567,21 +573,29 @@ Now it's time to upload our extension to chrome!
 * In order to view your edits you have to refresh the extension on (chrome://extensions). -->
 
 
-# Summary / What you Learned
+# Summary / What you Learned :clock10:
 
-* [ ] What a Web Platform is 
-* [ ] Basic understanding of Electron
-* [ ] Basic understanding of Chrome Extensions 
+* [X] What a Web Platform is 
+* [X] Basic understanding of Electron
+* [X] Basic understanding of Chrome Extensions
+* [X] How to code your own Chrome exTIMsion
 
-You just learned how to make your own chrome extension! Hopefully, it was a painless experience. You can use it to create fun extensions like this or to make more powerful ones to change how you browse the web. 
+You just learned how to make your own chrome extension! Hopefully, it was a painless experience :laughing:. You can use it to create fun extensions like this or to make more powerful ones to change how you browse the web. 
 
 Chrome extensions work similarly to websites and can access most of the APIs that a website could. Just like websites they do require a couple different files, but most of the functionality happens in one or two base js files. 
 
-# Reflection
-1. How do all of the chrome extension files interact? 
-2. Why would you want to use the chrome extension platform for a project, instead of making a standalone website? 
+# Extra Credit :100:
+* Customize!! Change up the sprite image, the quotes your sprite says, the logo in the chrome toolbar, anything.
+* Have your sprite say different quotes on certaint events (creativity appreciated)
+* Figure out how to position the sprite on websites that are built in interesting ways (on slack, google slides, etc.)
 
-# Resources
+# Reflection :interrobang:
+1. How do all of the chrome extension files interact?
+2. Why would you want to use the chrome extension platform for a project instead of making a standalone website, app, or desktop app? 
+
+Remember to submit whatever you have, as well as *short* reflection answers, on Canvas!
+
+# Resources :link:
 * [Chrome Extensions Development Page](https://developer.chrome.com/extensions)
     * [Chrome Overview of Extensions](https://developer.chrome.com/extensions/overview)
     * [Chrome Getting Started with Extensions](https://developer.chrome.com/extensions/getstarted)
