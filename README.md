@@ -75,7 +75,7 @@ To start with creating any Chrome extension, we need a ```manifest.json``` file.
 
 You should have an img directory from when you forked this repo and it should contain logo.png. This will be the image that shows up inour chrome toolbar!
 
-This is the initial setup for any chrome extension. In order for the logo png to show up, our extension needs to know that it’s loading those images. Add: 
+This is the initial setup for any chrome extension. In order for the logo png to show up, our extension needs to know that it’s loading those images. Add the below code block to the ```manifest.json``` file underneath the manifest_version code block: 
 
 ```json
 "web_accessible_resources": [
@@ -87,7 +87,7 @@ This is the initial setup for any chrome extension. In order for the logo png to
        "*.jpg/"
      ]
 ```
-to the ```manifest.json``` file  within the overal object so that all images ending with those listed would be able to show up whenever the extension uses them.
+Now all the images ending with those listed would be able to show up whenever the extension uses them.
 
 ## Content File :information_desk_person:
 Great! But how does our extension know what to do specifically? 
