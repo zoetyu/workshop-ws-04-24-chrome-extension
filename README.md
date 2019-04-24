@@ -18,7 +18,9 @@ A chrome extension is a simple and fun way to spruce up your browsing experience
 
 # Setup :star:
 
-:fork_and_knife: You can fork this repo to get started. It doesn't contain any functional code, but it does include the images that we'll refer to, a ```.gitignore``` file, and the quotes.
+:fork_and_knife: You can fork this repo to get started. 
+
+It doesn't contain any functional code, but it does include the images that we'll refer to, a ```.gitignore``` file, and the quotes.
 
 ![](img/docFlow.png)
 
@@ -92,7 +94,9 @@ Now all the images ending with those listed would be able to show up whenever th
 ## Content File :information_desk_person:
 Great! But how does our extension know what to do specifically? 
 
-:floppy_disk: We can tell it by creating a ```content.js``` file that holds the actual actions of the extension. For this extension, we are making a quote bot with Tim's photo! The content file is specified in ```manifest.json``` so that the browser knows to run the script. 
+:floppy_disk: We can tell it by creating a ```content.js``` file that holds the actual actions of the extension. 
+
+For this extension, we are making a quote bot with Tim's photo! The content file is specified in ```manifest.json``` so that the browser knows to run the script. 
 
 Add ```content.js``` as a content script in ```manifest.json```:
 
@@ -108,7 +112,9 @@ Add ```content.js``` as a content script in ```manifest.json```:
 ```
 ```content.js``` is our main js file and describes the behavior of the extension. Note that in ```“matches”``` the ```“<all_urls>”``` is a descriptor telling chrome that our extension applies to all urls and should always run. 
 
-Now that chrome will look to run ```content.js``` we have to create it. Create ```content.js``` in root directory. Let's test it, inside ```content.js``` add an alert (or a console log):
+Now that chrome will look to run ```content.js``` we have to create it. 
+
+:floppy_disk: Create ```content.js``` in root directory. Let's test it, inside ```content.js``` add an alert (or a console log):
 
 ```javascript
 alert("Hello from your Chrome extension!");
@@ -254,7 +260,7 @@ If you're making your own style, make sure to have styling for:
 
 Cool, you should now see the image when you open a new tab. (Remember to [refresh](#refresh) the extension.) 
 
-Feel free to comment out the alert at this point. 
+:thumbsup: Feel free to comment out the alert at this point. 
 
 
 ### Add Quotes :speech_balloon:
@@ -267,7 +273,7 @@ This will have two main parts:
 #### Loading Quotes :page_with_curl:
 Start with loading them from the ```quotes.json``` file in ```content.js``` with the ```fetch(URL)``` method. The [fetch](https://developers.google.com/web/updates/2015/03/introduction-to-fetch#fetch) method returns a promise with the requested results. 
 
-Here is an **example** of proper fetch use from google: 
+Here is an **example** of proper fetch use from google (emphasis on **example**): 
 
 ```javascript
 fetch('./api/some.json')
@@ -327,7 +333,9 @@ Create a function to randomly pick and append a quote from the quotes passed as 
 
  </details>
 
-Where should we call this function? How about as soon as we load the quotes in ```content.js```. 
+Where should we call this function? :stuck_out_tongue_closed_eyes:
+
+How about as soon as we load the quotes in ```content.js```. 
 
 ```javascript
 // load the quotes from the json file
@@ -400,7 +408,7 @@ Now add some styling to style.css:
 }``` -->
 
 Alright so now you have a working chrome extension, except it is always on… And maybe at a certain point you’d rather have Shia Lebeouf yell at you than read a pearl of CS52 wisdom. 
-On to making the on off button. 
+On to making the on off button! 
 
 # On and Off Button :no_entry_sign:
 In order for a chrome extension to access browser events, like clicks, the extension needs another file, a background file that listens for events and responds to them. Since our on-off button will need to respond to clicks, we need to use a background file, as well as some in browser storage to pass the on-off state to the content script. 
@@ -444,7 +452,7 @@ var enable=false;
 chrome.storage.sync.set({"enable": enable});
 ```
 
-What do we have to do when the user turns the extension on or off? If this were and ```onClick``` method in react, what would you do?
+:question: What do we have to do when the user turns the extension on or off? If this were and ```onClick``` method in react, what would you do?
 
 We will need to:
 * toggle the value of ```enable```
@@ -454,7 +462,7 @@ You were right!
 
 We use ```chrome.browserAction``` to both read events and set the badge, like above. We also use ```chrome.tabs.executeScript``` to reload the page. 
 
-You can probably think through the pseudo code for this function, but we've included the code here since it's a bit heavy with new syntax for the chrome api. :muscle:
+You can probably think through the pseudo code for this function, but we've included the code here since it's a bit heavy with new syntax for the chrome API. :muscle:
 
 ```javascript
 // onclick method
@@ -479,7 +487,7 @@ chrome.browserAction.onClicked.addListener((tab) => {
 
 
 ### Incorporate into **Content Script**
-Now we only want the content script to run when the extension is enabled. In ```background.js``` we stored the variable ```enable``` in the browser storage, so that we can get it in the ```content.js``` script using the [storage sync](https://developer.chrome.com/apps/storage) api. The storage api syntax is: 
+Now we only want the content script to run when the extension is enabled. In ```background.js``` we stored the variable ```enable``` in the browser storage, so that we can get it in the ```content.js``` script using the [storage sync](https://developer.chrome.com/apps/storage) API. The storage API syntax is: 
 
 ```javascript
 chrome.storage.sync.get("enable", function(result) {
@@ -605,7 +613,7 @@ Remember to submit whatever you have, as well as *short* reflection answers, on 
 * [Chrome Storage](https://developer.chrome.com/apps/storage)
 
 # Sources
-<a id="fn1">1</a>The extension loading section is basically copied from [last year’s workshop group](https://github.com/dartmouth-cs52-18S/workshop-ws-chrome-extension/blob/master/README.md).[↩](#fnl1)
+<a id="fn1">1</a>The extension loading section is basically copied from [last year’s workshop group](https://github.com/dartmouth-cs52-18S/workshop-ws-chrome-extension/blob/master/README.md). [↩](#fnl1)
 Our idea is also closely related to their idea --> we all love Tim. 
 
 We also used the [clippy extension](https://chrome.google.com/webstore/detail/clippy-the-useless-paperc/fmbcdhjmhddnnpeomknikdbboejbhdcl?hl=en-US) to start working through building the extension and for the idea. 
