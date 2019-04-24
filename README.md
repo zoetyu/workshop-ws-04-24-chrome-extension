@@ -128,7 +128,7 @@ Now it's time to upload our extension to chrome! Go to [chrome://extensions](htt
 3. Make sure the extension is turned on (toggle is blue). This is where errors in the extension will be logged.  
     * :question: If there is an **error** in the code, it will give you an error message and not let you turn the extension on. Whenever you have an error, it is convenient to *clear the error* before reloading to make it clear if the error is from your newest change or just leftover. Wave us down if you have questions!
 
-4. <a id="refresh"></a>From now on, in order to view your edits, you have to refresh the extension on (chrome://extensions).
+4. <a id="refresh"></a>:warning: From now on, in order to view your edits, you have to refresh the extension on (chrome://extensions).
 
 :white_check_mark: Check your progress out! Open a new tab and navigate to another website. We recommend [dartmouth.edu] (https://home.dartmouth.edu/). Your alert should popup!
 
@@ -402,7 +402,7 @@ Now add some styling to style.css:
 Alright so now you have a working chrome extension, except it is always on… And maybe at a certain point you’d rather have Shia Lebeouf yell at you than read a pearl of CS52 wisdom. 
 On to making the on off button. 
 
-# On and Off Button :mobile_phone_off:
+# On and Off Button :no_entry_sign:
 In order for a chrome extension to access browser events, like clicks, the extension needs another file, a background file that listens for events and responds to them. Since our on-off button will need to respond to clicks, we need to use a background file, as well as some in browser storage to pass the on-off state to the content script. 
 
 ## Background File 
@@ -427,7 +427,7 @@ Additionally, the extension requires permission to access the current tab, the b
      ]
 ```
 
-### Background Logic
+### Background Logic :foggy:
 :floppy_disk: Then create a ```background.js``` file.
 
 The first thing that our background file can do is set some text on the extension's logo to indicate whether it is on or off: 
@@ -489,7 +489,7 @@ chrome.storage.sync.get("enable", function(result) {
 
 Since this method returns a promise, we need to put our content functionality inside of the callback. 
 
-Go into your ```content.js.```. All of our functionality should be inside a check of enable, except ```sayQuote()``` which can be defined outside as it is just a function we are using.
+Go into your ```content.js```. All of our functionality should be inside a check of enable, except ```sayQuote()``` which can be defined outside as it is just a function we are using.
 
 So put all of your logic for adding the image, loading the quotes, and calling ```sayQuote()``` inside the callback and only run when ```enable == true```. Give it a go and see if you can get it to work. 
 
@@ -584,6 +584,8 @@ You just learned how to make your own chrome extension! Hopefully, it was a pain
 
 Chrome extensions work similarly to websites and can access most of the APIs that a website could. Just like websites they do require a couple different files, but most of the functionality happens in one or two base js files. 
 
+:fire: Hot tip: If you don't want this exTIMsion, right click the logo in the chrome toolbar and click ```remove from chrome```.
+
 # Extra Credit :100:
 * Customize!! Change up the sprite image, the quotes your sprite says, the logo in the chrome toolbar, anything.
 * Have your sprite say different quotes on certaint events (creativity appreciated)
@@ -606,4 +608,4 @@ Remember to submit whatever you have, as well as *short* reflection answers, on 
 <a id="fn1">1</a>The extension loading section is basically copied from [last year’s workshop group](https://github.com/dartmouth-cs52-18S/workshop-ws-chrome-extension/blob/master/README.md).[↩](#fnl1)
 Our idea is also closely related to their idea --> we all love Tim. 
 
-We also used the clippy extension]() to start working through building the extension and for the idea. 
+We also used the [clippy extension](https://chrome.google.com/webstore/detail/clippy-the-useless-paperc/fmbcdhjmhddnnpeomknikdbboejbhdcl?hl=en-US) to start working through building the extension and for the idea. 
