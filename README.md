@@ -144,9 +144,11 @@ Now it's time to upload our extension to chrome! Go to chrome://extensions (copy
 
 4. <a id="refresh"></a>:warning: From now on, in order to view your edits, you have to refresh the extension on (chrome://extensions).
 
-:white_check_mark: Check your progress out! Open a new tab and navigate to another website. We recommend [dartmouth.edu](https://home.dartmouth.edu/). Your alert should popup!
+:white_check_mark: Check your progress out! Open a new tab and navigate to another website. We recommend [dartmouth.edu](https://home.dartmouth.edu/). Your alert should popup! 
 
 ![](img/alertShot.png)
+
+:exclamation: If this still doesn't work, try [google.com](https://google.com/)! 
 
 ## Actual Logic :metal:
 TBH this alert is kinda annoying. We want to make our own sprite quote bot. 
