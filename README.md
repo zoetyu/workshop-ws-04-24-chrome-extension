@@ -19,7 +19,7 @@ A chrome extension is a simple and fun way to spruce up your browsing experience
 ![](img/fullScreen.png)
 ![](img/detailScreen.png)
 
-Today we'll make an extension that looks like this. Yup, that's Tim and those are all quotes from his presentations. They'll stay with you when you need some motivation on our labs or crushing your final project. The quotes display randomly, but after you are done you'll be able to change the extension to show whatever quotes you want, in whatever order, and with whatever picture you want. But for now let's get started :excited:. 
+Today we'll make an extension that looks like this. Yup, that's Tim and those are all quotes from his presentations. They'll stay with you when you need some motivation on our labs or crushing your final project. The quotes display randomly, but after you are done you'll be able to change the extension to show whatever quotes you want, in whatever order, and with whatever picture you want. But for now let's get started :grin:. 
 
 ## Disclaimer :no_good:
 Spaces, commas, semi-colons and other syntactical issues will come up if you are not careful! This is our warning to you to **make sure to think through the code** and **TRY NOT TO JUST COPY AND PASTE**!
