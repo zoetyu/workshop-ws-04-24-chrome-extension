@@ -122,7 +122,7 @@ First, add ```content.js``` as a content script in ```manifest.json``` so it kno
 
 Now that chrome will look to run ```content.js``` we have to create it. 
 
-:floppy_disk: Create ```content.js``` in your root directory. Let's test it, inside ```content.js``` add an alert (or a console log):
+:floppy_disk: Create ```content.js``` in your root directory. Let's test it! Inside ```content.js``` add an alert (or a console log):
 
 ```javascript
 alert("Hello from your Chrome extension!");
@@ -131,7 +131,7 @@ alert("Hello from your Chrome extension!");
 How do we see this test? We upload our extension. 
 
 ## Testing your extension<sup id="fnl1">[1](#fn1)</sup>
-Now it's time to upload our extension to chrome! Go to chrome://extensions (copy-paste into Chrome)
+Now it's time to upload our extension to chrome! Go to chrome://extensions (copy-paste this directly into Chrome)
 
 ![](img/extensionsDevMode.png)
 
@@ -148,7 +148,7 @@ Now it's time to upload our extension to chrome! Go to chrome://extensions (copy
 
 ![](img/alertShot.png)
 
-:exclamation: If this still doesn't work, try [google.com](https://google.com/)! 
+:exclamation: If [dartmouth.edu](https://home.dartmouth.edu/) still doesn't work, try [google.com](https://google.com/)! 
 
 ## Actual Logic :metal:
 TBH this alert is kinda annoying. We want to make our own sprite quote bot. 
@@ -212,6 +212,7 @@ In ```manifest.json``` under ```content_scripts```!
 </details>
 
 :floppy_disk: Ok, now time to make a ```style.css``` in root directory.
+
 If you're making your own style, make sure to have styling for:
 * the icon image (#clippyImg)
 * the Speech Bubble that will contain the quote (#speech-bubble, #speech-bubble:after)
@@ -271,13 +272,13 @@ If you're making your own style, make sure to have styling for:
 
 Cool, you should now see the image when you open a new tab. (Remember to [refresh](#refresh) the extension.) 
 
-:thumbsup: Feel free to comment out the alert at this point. 
+:thumbsup: Feel free to comment out the alert at this point! 
 
 
 ### Add Quotes :speech_balloon:
 Now, just a picture of Tim, though worth a thousand words, is worth more when it includes a pearl of wisdom he dropped in class. Fear not, we have compiled some *inspirational* quotes from class. You’ll find them in a json file called quotes. 
 
-This will have two main parts: 
+This file will have two main parts: 
 1. Loading the quotes
 2. Picking a quote to display and adding it to the div
 
@@ -346,7 +347,7 @@ Create a function to randomly pick and append a quote from the quotes passed as 
 
 Where should we call this function? :stuck_out_tongue_closed_eyes:
 
-How about as soon as we load the quotes in ```content.js```. 
+How about... as soon as we load the quotes in ```content.js```!
 
 ```javascript
 // load the quotes from the json file
@@ -366,7 +367,7 @@ How about as soon as we load the quotes in ```content.js```.
 
 Here we fetch the json file, call the function immediately, and invoke the function periodically.
 
-Now you have a working chrome extension, except it is always on… And maybe at a certain point you’d rather have Shia Lebeouf yell at you than read a pearl of CS52 wisdom. 
+Now you have a working chrome extension, except it is always on… And maybe at a certain point you’d rather have Shia Lebeouf yell at you than read a pearl of CS52 wisdom. But alas!
 On to making the on off button! 
 
 # On and Off Button :no_entry_sign:
@@ -396,7 +397,7 @@ Additionally, the extension requires permission to access the current tab, the b
 The permissions have to be declared for the program to access these items and so that the user knows what the extension can access.
 
 ### Background Logic :foggy:
-:floppy_disk: Then create a ```background.js``` file.
+:floppy_disk: Now, create a ```background.js``` file.
 
 The first thing that our background file can do is set some text on the extension's logo to indicate whether it is on or off: 
 ```javascript
@@ -508,7 +509,7 @@ function sayQuote(qts) {
 ```
 </details>
 
-Now your extension should only show up and display quotes when you turn it on in the toolbar! Woohoo!! 
+Now your extension should only show up and display quotes when you turn it on in the toolbar! Woohoo!! Now you will always have:  
 
 **So**:exclamation:
 
@@ -548,7 +549,7 @@ Now it's time to upload our extension to chrome!
 * [X] Basic understanding of Chrome Extensions
 * [X] How to code your own Chrome exTIMsion
 
-You just learned how to make your own chrome extension! Hopefully, it was a painless experience :laughing:. You can use it to create fun extensions like this or to make more powerful ones to change how you browse the web. 
+You just learned how to make your own chrome extension! Hopefully, it was a painless experience :laughing: You can use it to create fun extensions like this or to make more powerful ones to change how you browse the web. 
 
 Chrome extensions work similarly to websites and can access most of the APIs that a website could. Just like websites they do require a couple different files, but most of the functionality happens in one or two base js files. 
 
