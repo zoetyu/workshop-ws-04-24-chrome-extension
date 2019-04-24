@@ -75,7 +75,7 @@ To start with creating any Chrome extension, we need a ```manifest.json``` file.
 ```json
 {
    "manifest_version": 2,
-   "name": "My Cool Extension",
+   "name": "Tim's Thoughts",
    "version": "0.1",
    "browser_action": {
        "default_icon": "img/logo.png"
