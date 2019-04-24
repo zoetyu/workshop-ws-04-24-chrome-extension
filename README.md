@@ -391,6 +391,7 @@ Additionally, the extension requires permission to access the current tab, the b
        "https://*/"
      ]
 ```
+The permissions have to be declared for the program to access these items and so that the user knows what the extension can access.
 
 ### Background Logic :foggy:
 :floppy_disk: Then create a ```background.js``` file.
