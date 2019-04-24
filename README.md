@@ -575,8 +575,8 @@ Remember to submit whatever you have, as well as *short* reflection answers, on 
 
 # Sources
 <a id="fn1"></a>The extension loading section is basically copied from [last year’s workshop group](https://github.com/dartmouth-cs52-18S/workshop-ws-chrome-extension/blob/master/README.md). [↩](#fnl1)
-Our idea is also closely related to their idea --> we :clap: all :clap: love :clap: Tim :clap:. 
+Our idea is also closely related to their idea --> we :clap: all :clap: love :clap: Tim :clap: 
 
-We also used the [clippy extension](https://chrome.google.com/webstore/detail/clippy-the-useless-paperc/fmbcdhjmhddnnpeomknikdbboejbhdcl?hl=en-US) to start working through building the extension and for the idea. 
+We also used the [clippy extension](https://chrome.google.com/webstore/detail/clippy-the-useless-paperc/fmbcdhjmhddnnpeomknikdbboejbhdcl?hl=en-US) to start working through the building of the extension and as our inspiration for the original idea. 
 
-The tutorial is also inspired by [this other tutorial on creating Chrome extensions from scratch](https://thoughtbot.com/blog/how-to-make-a-chrome-extension)
+Our tutorial is also inspired by [this other tutorial on creating Chrome extensions from scratch](https://thoughtbot.com/blog/how-to-make-a-chrome-extension)! 
