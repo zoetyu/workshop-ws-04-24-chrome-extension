@@ -16,6 +16,9 @@ Chrome extensions can access all the API’s that a webpage might and some addit
 
 A chrome extension is a simple and fun way to spruce up your browsing experience, which is where most of us spend our lives, so why not make it yours. It is also the perfect platform for certain projects, the most obvious ones being those that change how we interact with websites or entertainment ones where in-browser is just the right medium.
 
+## Disclaimer :no_good:
+Spaces, commas, semi-colons and other syntactical issues will come up if you are not careful! This is our warning to you to **make sure to think through the code** and **TRY NOT TO COPY AND PASTE**!
+
 # Setup :star:
 
 :fork_and_knife: You can fork this repo to get started. 
