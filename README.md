@@ -556,7 +556,7 @@ Chrome extensions work similarly to websites and can access most of the APIs tha
 
 # Extra Credit :100:
 * Customize!! Change up the sprite image, the quotes your sprite says, the logo in the chrome toolbar, anything.
-* Have your sprite say different quotes on certaint events (creativity appreciated)
+* Have your sprite say different quotes on certain events (creativity appreciated)
 * Figure out how to position the sprite on websites that are built in interesting ways (on slack, google slides, etc.)
 
 # Reflection :interrobang:
@@ -575,7 +575,7 @@ Remember to submit whatever you have, as well as *short* reflection answers, on 
 
 # Sources
 <a id="fn1"></a>The extension loading section is basically copied from [last year’s workshop group](https://github.com/dartmouth-cs52-18S/workshop-ws-chrome-extension/blob/master/README.md). [↩](#fnl1)
-Our idea is also closely related to their idea --> we :clap: all :clap: love :clap: Tim :clap: 
+Our idea is also closely related to their idea &rarr; we :clap: all :clap: love :clap: Tim :clap: 
 
 We also used the [clippy extension](https://chrome.google.com/webstore/detail/clippy-the-useless-paperc/fmbcdhjmhddnnpeomknikdbboejbhdcl?hl=en-US) to start working through the building of the extension and as our inspiration for the original idea. 
 
